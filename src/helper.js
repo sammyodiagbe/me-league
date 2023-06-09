@@ -1,4 +1,4 @@
-const teamsData = [
+export const teamsData = [
   {
     name: "Manchester United",
     shortName: "MAN",
@@ -103,5 +103,3 @@ const teamsData = [
 
 const weeks = 38;
 const totalGamesInSeason = 380;
-
-export default { teamsData, weeks, totalGamesInSeason };

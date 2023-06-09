@@ -4,11 +4,14 @@ import { useContext } from "react";
 import { gameContext } from "./context/gameContext";
 
 function App() {
-  const gameContext = useContext(gameContext);
+  const gctx = useContext(gameContext);
+  const { generateLeagueData } = gctx;
   return (
     <div className="App">
       <div className="trigger-container" style={{}}>
-        <button className="trigger">Generate league data</button>
+        <button className="trigger" onClick={generateLeagueData}>
+          Generate league data
+        </button>
       </div>
     </div>
   );
