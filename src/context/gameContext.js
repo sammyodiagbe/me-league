@@ -1,9 +1,18 @@
 import { createContext } from "react";
 
-const gameContext = createContext();
+export const gameContext = createContext();
 
 const GameDataProvider = ({ children }) => {
-  return <gameContext.Provider>{children}</gameContext.Provider>;
+  const generateLeagueData = () => {};
+  return (
+    <gameContext.Provider
+      value={{
+        generateLeagueData,
+      }}
+    >
+      {children}
+    </gameContext.Provider>
+  );
 };
 
 export default GameDataProvider;
