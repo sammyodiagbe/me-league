@@ -8,10 +8,10 @@ export const gameContext = createContext();
 const GameDataProvider = ({ children }) => {
   const [fixtures, setFixtures] = useState([]);
   const generateLeagueData = () => {
-    generateFirstHalfOfSeasonGames();
+    generateSeasonFixture();
   };
 
-  const generateFirstHalfOfSeasonGames = () => {
+  const generateSeasonFixture = () => {
     const dummyFixtures = [];
     for (let index = 0; index < teamsData.length; index++) {
       const tempTeams = [...teamsData];
@@ -28,7 +28,7 @@ const GameDataProvider = ({ children }) => {
       }
     }
 
-    console.log(dummyFixtures);
+    console.table(dummyFixtures);
   };
   return (
     <gameContext.Provider
