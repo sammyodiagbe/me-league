@@ -100,6 +100,3 @@ export const teamsData = [
     emblem: "https://resources.premierleague.com/premierleague/badges/t4.svg",
   },
 ];
-
-const weeks = 38;
-const totalGamesInSeason = 380;

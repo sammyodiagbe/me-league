@@ -2,11 +2,17 @@ import { createContext, useState } from "react";
 import Team from "../models/team";
 import { teamsData } from "../helper";
 import Match from "../models/match";
+import Week from "../models/week";
 
 export const gameContext = createContext();
 
 const GameDataProvider = ({ children }) => {
-  const [fixtures, setFixtures] = useState([]);
+  const [fixtures, setWeeklyFixtures] = useState(
+    new Array(38).fill(new Week())
+  );
+  //   const [allFixtures, setAllFixtures] = useState([]);
+  const [currentWeek, setCurrentWeek] = useState(0);
+
   const generateLeagueData = () => {
     generateSeasonFixture();
   };
@@ -27,13 +33,43 @@ const GameDataProvider = ({ children }) => {
         dummyFixtures.push(newMatch);
       }
     }
+    generateWeeklyFixtures(dummyFixtures);
+  };
 
-    console.table(dummyFixtures);
+  //   generate weekly fixtures
+
+  const generateWeeklyFixtures = (seasonGames) => {
+    const games = seasonGames;
+    const weeklyFixtures = [...fixtures];
+    while (games.length) {
+      const game = games.splice(Math.floor(Math.random() * games.length), 1)[0];
+      //   console.log(game);
+      for (let index = 0; index < 10; index++) {
+        const week = weeklyFixtures[index];
+
+        // console.log("getting team 1 name");
+        if (
+          week.getTeams.includes(game.getTeam1) ||
+          week.getTeams.includes(game.getTeam2)
+        ) {
+          continue;
+        } else {
+          // the teams have not been added
+          week.addGameToWeek = game;
+          weeklyFixtures[index] = week;
+          break;
+        }
+      }
+    }
+    setWeeklyFixtures(weeklyFixtures);
+    console.log(fixtures);
   };
   return (
     <gameContext.Provider
       value={{
         generateLeagueData,
+        currentWeek,
+        setCurrentWeek,
       }}
     >
       {children}
