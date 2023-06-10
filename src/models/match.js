@@ -14,6 +14,14 @@ class Match {
   get getTeam2() {
     return this.#team2.getShortName;
   }
+
+  get getFirstTeam() {
+    return this.#team1;
+  }
+
+  get getSecondTeam() {
+    return this.#team2;
+  }
 }
 
 export default Match;

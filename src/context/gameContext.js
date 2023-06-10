@@ -12,6 +12,7 @@ const GameDataProvider = ({ children }) => {
   );
   //   const [allFixtures, setAllFixtures] = useState([]);
   const [currentWeek, setCurrentWeek] = useState(0);
+  const [started, setStarted] = useState(false);
 
   const generateLeagueData = () => {
     generateSeasonFixture();
@@ -62,7 +63,7 @@ const GameDataProvider = ({ children }) => {
       }
     }
     setWeeklyFixtures(weeklyFixtures);
-    console.log(fixtures);
+    setStarted(true);
   };
   return (
     <gameContext.Provider
@@ -70,6 +71,9 @@ const GameDataProvider = ({ children }) => {
         generateLeagueData,
         currentWeek,
         setCurrentWeek,
+        started,
+        setStarted,
+        fixtures,
       }}
     >
       {children}
