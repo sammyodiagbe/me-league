@@ -3,12 +3,15 @@ import { gameContext } from "../context/gameContext";
 import { useState } from "react";
 
 const GameWeek = () => {
-  const [weekTimer, setWeekTimer] = useState(0);
-
+  const [weekTimer, setWeekTimer] = useState(1);
+  const [seasonEnded, setSeasonEnded] = useState(false);
   useEffect(() => {
-    const weekGameInterval = setInterval(() => {
-      setWeekTimer((currenttime) => currenttime + 1);
-    }, 15000);
+    let weekGameInterval;
+    if (!seasonEnded) {
+      weekGameInterval = setInterval(() => {
+        setWeekTimer((currenttime) => currenttime + 1);
+      }, 15000);
+    }
 
     return () => {
       clearInterval(weekGameInterval);
