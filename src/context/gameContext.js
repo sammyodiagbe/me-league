@@ -10,9 +10,25 @@ const GameDataProvider = ({ children }) => {
   const [fixtures, setWeeklyFixtures] = useState(
     new Array(38).fill(new Week())
   );
+
+  const [table, updateTable] = useState({});
   //   const [allFixtures, setAllFixtures] = useState([]);
   const [currentWeek, setCurrentWeek] = useState(0);
   const [started, setStarted] = useState(false);
+
+  const createLeagueTable = () => {
+    const tempTable = {};
+    for (team of teamsData) {
+      const { name, shortName, emblem } = team;
+      const tm = new Team(name, emblem, shortName);
+      tempTable[shortName] = tm;
+    }
+
+    // setting the table
+
+    console.log(tm);
+    updateTable(tm);
+  };
 
   const generateLeagueData = () => {
     generateSeasonFixture();
@@ -65,6 +81,10 @@ const GameDataProvider = ({ children }) => {
     setWeeklyFixtures(weeklyFixtures);
     setStarted(true);
   };
+
+  useEffect(() => {
+    createLeagueTable();
+  }, []);
   return (
     <gameContext.Provider
       value={{
@@ -74,6 +94,7 @@ const GameDataProvider = ({ children }) => {
         started,
         setStarted,
         fixtures,
+        table,
       }}
     >
       {children}
