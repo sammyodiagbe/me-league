@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import Team from "../models/team";
 import { teamsData } from "../helper";
 import Match from "../models/match";
@@ -18,7 +18,7 @@ const GameDataProvider = ({ children }) => {
 
   const createLeagueTable = () => {
     const tempTable = {};
-    for (team of teamsData) {
+    for (const team of teamsData) {
       const { name, shortName, emblem } = team;
       const tm = new Team(name, emblem, shortName);
       tempTable[shortName] = tm;
@@ -26,8 +26,7 @@ const GameDataProvider = ({ children }) => {
 
     // setting the table
 
-    console.log(tm);
-    updateTable(tm);
+    updateTable(tempTable);
   };
 
   const generateLeagueData = () => {

@@ -6,7 +6,7 @@ const Game = ({ match }) => {
   const [gameTime, setGameTime] = useState(0);
 
   useEffect(() => {
-    const gameInt = setInteval(() => {
+    const gameInt = setInterval(() => {
       setGameTime((timer) => timer + 1);
     }, 3000);
 
