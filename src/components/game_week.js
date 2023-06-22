@@ -9,6 +9,8 @@ const WeekFixtures = () => {
   const gtx = useContext(gameContext);
   const { fixtures } = gtx;
 
+  console.log(fixtures);
+
   useEffect(() => {
     let weekGameInterval;
     if (!seasonEnded) {
@@ -29,6 +31,8 @@ const WeekFixtures = () => {
     }
   }, [weekTimer]);
   const week = fixtures[weekTimer - 1];
+
+  console.log(week);
   const renderWeekFixture = week.getGames.map((match, index) => {
     return <Game match={match} key={index} />;
   });

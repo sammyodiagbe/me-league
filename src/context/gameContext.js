@@ -83,11 +83,11 @@ const GameDataProvider = ({ children }) => {
 
   useEffect(() => {
     createLeagueTable();
+    generateLeagueData();
   }, []);
   return (
     <gameContext.Provider
       value={{
-        generateLeagueData,
         currentWeek,
         setCurrentWeek,
         started,
