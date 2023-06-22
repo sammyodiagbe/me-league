@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-const Game = () => {
+const Game = ({ match }) => {
+  const { getTeam1, getTeam2 } = match;
   const [gameTime, setGameTime] = useState(0);
 
   useEffect(() => {
