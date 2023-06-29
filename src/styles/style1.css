@@ -9,7 +9,7 @@ div.game-screen {
   padding: 1em 0;
 }
 div.game-screen div.container {
-  width: 950px;
+  width: 980px;
   margin: 0 auto;
 }
 div.game-screen div.container div.details {
@@ -18,10 +18,9 @@ div.game-screen div.container div.details {
 }
 div.game-screen div.container div.details div.fixtures div.a-game {
   padding: 10px 0;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  display: grid;
-  grid-template-columns: 1fr max-content 1fr;
+  justify-content: space-evenly;
 }
 div.game-screen div.container div.details div.fixtures div.a-game:nth-child(even) {
   background: lightgrey;
@@ -30,13 +29,33 @@ div.game-screen div.container div.details div.fixtures div.a-game div.home,
 div.game-screen div.container div.details div.fixtures div.a-game div.away {
   display: grid;
   padding: 0 10px;
-  grid-template-columns: max-content max-content;
   align-items: center;
-}
-div.game-screen div.container div.details div.fixtures div.a-game div.home span.team-name,
-div.game-screen div.container div.details div.fixtures div.a-game div.away span.team-name {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: bold;
 }
 div.game-screen div.container div.details div.fixtures div.a-game div.home {
-  justify-content: end;
+  flex: 1;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.home p {
+  text-align: right;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.away {
+  flex: 1;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.score-holder {
+  flex: 0 0 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  margin: 0 15px;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.score-holder div.score-line {
+  margin: 0 5px;
+  font-weight: bold;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.score-holder div.score-line span.versus {
+  margin: 0 5px;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.score-holder div.score-line span.score {
+  font-size: 15px;
 }/*# sourceMappingURL=style1.css.map */

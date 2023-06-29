@@ -8,7 +8,7 @@
 div.game-screen {
   padding: 1em 0;
   div.container {
-    width: 950px;
+    width: 980px;
     margin: 0 auto;
     div.details {
       display: grid;
@@ -19,23 +19,17 @@ div.game-screen {
           &:nth-child(even) {
             background: lightgrey;
           }
+          display: flex;
           align-items: center;
-          justify-content: space-between;
-          display: grid;
-          grid-template-columns: 1fr max-content 1fr;
+          justify-content: space-evenly;
 
           div.home,
           div.away {
             display: grid;
             padding: 0 10px;
-            grid-template-columns: max-content max-content;
             align-items: center;
-            img {
-            }
-
-            span.team-name {
-              font-size: 14px;
-            }
+            font-size: 13px;
+            font-weight: bold;
           }
 
           //   div.away {
@@ -45,7 +39,31 @@ div.game-screen {
           //   }
 
           div.home {
-            justify-content: end;
+            flex: 1;
+            p {
+              text-align: right;
+            }
+          }
+          div.away {
+            flex: 1;
+          }
+          div.score-holder {
+            flex: 0 0 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            margin: 0 15px;
+            div.score-line {
+              margin: 0 5px;
+              font-weight: bold;
+              span.versus {
+                margin: 0 5px;
+              }
+
+              span.score {
+                font-size: 15px;
+              }
+            }
           }
         }
       }

@@ -10,26 +10,26 @@ const WeekFixtures = () => {
   let gameInterval;
   const { fixtures } = gtx;
 
-  useEffect(() => {
-    if (!seasonEnded) {
-      gameInterval = setInterval(() => {
-        setWeekTimer((currenttime) => currenttime + 1);
-      }, 15000);
-    }
+  // useEffect(() => {
+  //   if (!seasonEnded) {
+  //     gameInterval = setInterval(() => {
+  //       setWeekTimer((currenttime) => currenttime + 1);
+  //     }, 15000);
+  //   }
 
-    return () => {
-      clearInterval(gameInterval);
-      // this is where season has ended
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(gameInterval);
+  //     // this is where season has ended
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    if (weekTimer > 0 && weekTimer % 19 === 0) {
-      // the season has ended
-      clearInterval(gameInterval);
-      setSeasonEnded(true);
-    }
-  }, [weekTimer]);
+  // useEffect(() => {
+  //   if (weekTimer > 0 && weekTimer % 19 === 0) {
+  //     // the season has ended
+  //     clearInterval(gameInterval);
+  //     setSeasonEnded(true);
+  //   }
+  // }, [weekTimer]);
   const week = fixtures[weekTimer];
 
   const renderWeekFixture = week.getGames.map((match, index) => {
