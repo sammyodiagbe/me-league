@@ -4,33 +4,33 @@ import { useState } from "react";
 import Game from "./game";
 
 const WeekFixtures = () => {
-  const [weekTimer, setWeekTimer] = useState(1);
+  const [weekTimer, setWeekTimer] = useState(0);
   const [seasonEnded, setSeasonEnded] = useState(false);
   const gtx = useContext(gameContext);
+  let gameInterval;
   const { fixtures } = gtx;
 
-  console.log(fixtures);
-
   useEffect(() => {
-    let weekGameInterval;
     if (!seasonEnded) {
-      weekGameInterval = setInterval(() => {
+      gameInterval = setInterval(() => {
         setWeekTimer((currenttime) => currenttime + 1);
       }, 15000);
     }
 
     return () => {
-      clearInterval(weekGameInterval);
+      clearInterval(gameInterval);
       // this is where season has ended
     };
   }, []);
 
   useEffect(() => {
-    if (weekTimer > 0 && weekTimer % 20 === 0) {
+    if (weekTimer > 0 && weekTimer % 19 === 0) {
       // the season has ended
+      clearInterval(gameInterval);
+      setSeasonEnded(true);
     }
   }, [weekTimer]);
-  const week = fixtures[weekTimer - 1];
+  const week = fixtures[weekTimer];
 
   console.log(week);
   const renderWeekFixture = week.getGames.map((match, index) => {
