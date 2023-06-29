@@ -15,6 +15,8 @@ div.game-screen div.container {
 div.game-screen div.container div.details {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
 }
 div.game-screen div.container div.details div.fixtures div.a-game {
   padding: 10px 0;
@@ -58,4 +60,40 @@ div.game-screen div.container div.details div.fixtures div.a-game div.score-hold
 }
 div.game-screen div.container div.details div.fixtures div.a-game div.score-holder div.score-line span.score {
   font-size: 15px;
+}
+
+div.season-table {
+  overflow: scroll;
+}
+div.season-table div.team-table-entry {
+  display: flex;
+  padding: 8px;
+}
+div.season-table div.team-table-entry:nth-child(even) {
+  background: #efefef;
+}
+div.season-table div.team-table-entry div.team-details {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+div.season-table div.team-table-entry div.team-name-emblem {
+  flex: 0 0 230px;
+  display: flex;
+  align-items: center;
+}
+div.season-table div.team-table-entry div.team-name-emblem span.pos {
+  margin-right: 5px;
+  flex: 0 0 20px;
+  font-weight: bold;
+  width: 20px;
+  font-size: 12px;
+}
+div.season-table div.team-table-entry div.team-name-emblem img {
+  width: 25px;
+  margin-right: 10px;
+}
+div.season-table div.team-table-entry div.team-name-emblem span.team-name {
+  font-size: 14px;
+  font-weight: bold;
 }/*# sourceMappingURL=style1.css.map */

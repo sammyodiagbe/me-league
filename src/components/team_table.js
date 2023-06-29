@@ -1,4 +1,4 @@
-const TeamEntry = ({ team }) => {
+const TeamEntry = ({ team, position }) => {
   const {
     getName,
     getEmblem,
@@ -14,6 +14,7 @@ const TeamEntry = ({ team }) => {
   return (
     <div className="team-table-entry">
       <div className="team-name-emblem">
+        <span className="pos">{position}</span>
         <img src={getEmblem} alt={getName} />
         <span className="team-name">{getName}</span>
       </div>

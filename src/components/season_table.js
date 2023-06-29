@@ -10,12 +10,12 @@ const SeasonTable = () => {
   const renderTable = _.toArray(table)
     .sort((a, b) => a - b)
     .map((team, index) => {
-      return <TeamEntry team={team} key={index} />;
+      return <TeamEntry team={team} key={index} position={index + 1} />;
     });
 
   return (
     <div className="season-table">
-      <h1>table</h1>
+      <h3>Table</h3>
       {renderTable}
     </div>
   );
