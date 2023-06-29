@@ -50,7 +50,7 @@ div.game-screen div.container div.details div.fixtures div.a-game div.score-hold
   margin: 0 15px;
 }
 div.game-screen div.container div.details div.fixtures div.a-game div.score-holder div.score-line {
-  margin: 0 5px;
+  margin: 0 15px;
   font-weight: bold;
 }
 div.game-screen div.container div.details div.fixtures div.a-game div.score-holder div.score-line span.versus {
