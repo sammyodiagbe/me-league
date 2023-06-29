@@ -15,6 +15,13 @@ class Match {
     return this.#team2.getShortName;
   }
 
+  get getTeam1Emblem() {
+    return this.#team1.getEmblem;
+  }
+
+  get getTeam2Emblem() {
+    return this.#team2.getEmblem;
+  }
   get getFirstTeam() {
     return this.#team1;
   }
