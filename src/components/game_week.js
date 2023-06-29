@@ -32,7 +32,6 @@ const WeekFixtures = () => {
   }, [weekTimer]);
   const week = fixtures[weekTimer];
 
-  console.log(week);
   const renderWeekFixture = week.getGames.map((match, index) => {
     return <Game match={match} key={index} />;
   });
