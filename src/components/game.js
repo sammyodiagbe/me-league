@@ -15,7 +15,6 @@ const Game = ({ match }) => {
 
     if (gameTime > 0 && gameTime % 4 === 0) {
       // stop the timer and update the team data on the table
-      console.log("game has ended");
       clearInterval(gameInterval);
     }
 
