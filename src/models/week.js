@@ -1,19 +1,19 @@
 class Week {
-  #teams = [];
-  #games = [];
+  teams = [];
+  games = [];
 
   get getTeams() {
-    return this.#teams;
+    return this.teams;
   }
 
   get getGames() {
-    return this.#games;
+    return this.games;
   }
 
   set addGameToWeek(match) {
-    this.#games.push(match);
-    this.#teams.push(match.getTeam1);
-    this.#teams.push(match.getTeam2);
+    this.games.push(match);
+    this.teams.push(match.getTeam1);
+    this.teams.push(match.getTeam2);
   }
 }
 

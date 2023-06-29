@@ -77,6 +77,9 @@ const GameDataProvider = ({ children }) => {
         }
       }
     }
+
+    console.table(weeklyFixtures[0]);
+    console.table(weeklyFixtures[1]);
     setWeeklyFixtures(weeklyFixtures);
     setStarted(true);
   };

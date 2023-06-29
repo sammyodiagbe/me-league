@@ -1,7 +1,7 @@
 class Team {
-  #name;
-  #emblem;
-  #shortName;
+  name;
+  emblem;
+  shortName;
   gamePlayed = 0;
   won = 0;
   drawn = 0;
@@ -11,21 +11,21 @@ class Team {
   goalDone = 0;
   points = 0;
   constructor(name, emblem, shortName) {
-    this.#name = name;
-    this.#emblem = emblem;
-    this.#shortName = shortName;
+    this.name = name;
+    this.emblem = emblem;
+    this.shortName = shortName;
   }
 
   get getName() {
-    return this.#name;
+    return this.name;
   }
 
   get getEmblem() {
-    return this.#emblem;
+    return this.emblem;
   }
 
   get getShortName() {
-    return this.#shortName;
+    return this.shortName;
   }
 }
 

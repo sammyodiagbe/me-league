@@ -4,38 +4,38 @@ import { useState } from "react";
 import Game from "./game";
 
 const WeekFixtures = () => {
-  const [weekTimer, setWeekTimer] = useState(0);
-  const [seasonEnded, setSeasonEnded] = useState(false);
+  const [week, setWeek] = useState(0);
+  // const [seasonEnded, setSeasonEnded] = useState(false);
   const gtx = useContext(gameContext);
-  let gameInterval;
   const { fixtures } = gtx;
 
-  // useEffect(() => {
-  //   if (!seasonEnded) {
-  //     gameInterval = setInterval(() => {
-  //       setWeekTimer((currenttime) => currenttime + 1);
-  //     }, 15000);
-  //   }
+  useEffect(() => {
+    const weekInterval = setInterval(() => {
+      setWeek((week) => week + 1);
+    }, 16000);
 
-  //   return () => {
-  //     clearInterval(gameInterval);
-  //     // this is where season has ended
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   if (weekTimer > 0 && weekTimer % 19 === 0) {
-  //     // the season has ended
-  //     clearInterval(gameInterval);
-  //     setSeasonEnded(true);
-  //   }
-  // }, [weekTimer]);
-  const week = fixtures[weekTimer];
-
-  const renderWeekFixture = week.getGames.map((match, index) => {
-    return <Game match={match} key={index} />;
-  });
-  return <div className="fixtures">{renderWeekFixture}</div>;
+    if (week > 0 && week % 19 == 0) {
+      clearInterval(weekInterval);
+    }
+    return () => {
+      return clearInterval(weekInterval);
+    };
+  }, [week]);
+  return (
+    <div className="fixtures">
+      <h2>Week {week}</h2>
+      <div>
+        {fixtures[0].getGames.map((match, index) => {
+          return <Game match={match} key={index} />;
+        })}
+      </div>
+      <div>
+        {fixtures[1].getGames.map((match, index) => {
+          return <Game match={match} key={index} />;
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default WeekFixtures;
