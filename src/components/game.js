@@ -25,16 +25,16 @@ const Game = ({ match }) => {
   return (
     <div className="a-game">
       <div className="home">
-        <img src={getTeam1Emblem} alt={getTeam1} />
         <span className="team-name">{getTeam1}</span>
       </div>
       <div className="score-holder">
+        <img src={getTeam1Emblem} alt={getTeam1} />
         <span className="score">{scores[0]}</span>
         <span className="versus">VS</span>
         <span className="score">{scores[1]}</span>
-      </div>
-      <div className="home">
         <img src={getTeam2Emblem} alt={getTeam2} />
+      </div>
+      <div className="away">
         <span className="team-name">{getTeam2}</span>
       </div>
     </div>

@@ -4,3 +4,51 @@
   box-sizing: border-box;
   outline: none;
 }
+
+div.game-screen {
+  padding: 1em 0;
+  div.container {
+    width: 950px;
+    margin: 0 auto;
+    div.details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      div.fixtures {
+        div.a-game {
+          padding: 10px 0;
+          &:nth-child(even) {
+            background: lightgrey;
+          }
+          align-items: center;
+          justify-content: space-between;
+          display: grid;
+          grid-template-columns: 1fr max-content 1fr;
+
+          div.home,
+          div.away {
+            display: grid;
+            padding: 0 10px;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+            img {
+            }
+
+            span.team-name {
+              font-size: 14px;
+            }
+          }
+
+          //   div.away {
+          //     span.team-name {
+          //       margin-left: 10px;
+          //     }
+          //   }
+
+          div.home {
+            justify-content: end;
+          }
+        }
+      }
+    }
+  }
+}

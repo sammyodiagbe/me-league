@@ -3,4 +3,40 @@
   margin: 0;
   box-sizing: border-box;
   outline: none;
+}
+
+div.game-screen {
+  padding: 1em 0;
+}
+div.game-screen div.container {
+  width: 950px;
+  margin: 0 auto;
+}
+div.game-screen div.container div.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+div.game-screen div.container div.details div.fixtures div.a-game {
+  padding: 10px 0;
+  align-items: center;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+}
+div.game-screen div.container div.details div.fixtures div.a-game:nth-child(even) {
+  background: lightgrey;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.home,
+div.game-screen div.container div.details div.fixtures div.a-game div.away {
+  display: grid;
+  padding: 0 10px;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.home span.team-name,
+div.game-screen div.container div.details div.fixtures div.a-game div.away span.team-name {
+  font-size: 14px;
+}
+div.game-screen div.container div.details div.fixtures div.a-game div.home {
+  justify-content: end;
 }/*# sourceMappingURL=style1.css.map */
