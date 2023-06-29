@@ -10,7 +10,7 @@ class Week {
     return this.games;
   }
 
-  set addGameToWeek(match) {
+  addGameToWeek(match) {
     this.games.push(match);
     this.teams.push(match.getTeam1);
     this.teams.push(match.getTeam2);

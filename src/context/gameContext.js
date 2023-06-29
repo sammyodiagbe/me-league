@@ -58,28 +58,28 @@ const GameDataProvider = ({ children }) => {
     const games = seasonGames;
     const weeklyFixtures = [...fixtures];
     while (games.length) {
+      // get the game from the season games
       const game = games.splice(Math.floor(Math.random() * games.length), 1)[0];
-      //   console.log(game);
       for (let index = 0; index < 10; index++) {
         const week = weeklyFixtures[index];
-
         // console.log("getting team 1 name");
+
+        // if the team is already playing in that week
         if (
           week.getTeams.includes(game.getTeam1) ||
           week.getTeams.includes(game.getTeam2)
         ) {
+          // do nothing and go to the next week
           continue;
         } else {
           // the teams have not been added
-          week.addGameToWeek = game;
+          // add the team to the week
+          week.addGameToWeek(game);
           weeklyFixtures[index] = week;
           break;
         }
       }
     }
-
-    console.table(weeklyFixtures[0]);
-    console.table(weeklyFixtures[1]);
     setWeeklyFixtures(weeklyFixtures);
     setStarted(true);
   };
@@ -88,6 +88,7 @@ const GameDataProvider = ({ children }) => {
     createLeagueTable();
     generateLeagueData();
   }, []);
+
   return (
     <gameContext.Provider
       value={{

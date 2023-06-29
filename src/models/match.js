@@ -8,11 +8,11 @@ class Match {
   }
 
   get getTeam1() {
-    return this.team1.getName;
+    return this.team1.name;
   }
 
   get getTeam2() {
-    return this.team2.getName;
+    return this.team2.name;
   }
 
   get getTeam1Emblem() {

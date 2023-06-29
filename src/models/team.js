@@ -20,6 +20,10 @@ class Team {
     return this.name;
   }
 
+  get getshortName() {
+    return this.shortName;
+  }
+
   get getEmblem() {
     return this.emblem;
   }
