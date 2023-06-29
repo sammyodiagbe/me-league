@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./styles/style1.css";
 import App from "./App";
 import GameDataProvider from "./context/gameContext";
 
