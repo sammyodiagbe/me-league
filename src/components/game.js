@@ -4,8 +4,7 @@ import { useState } from "react";
 const Game = ({ match }) => {
   const { getTeam1, getTeam2, getTeam1Emblem, getTeam2Emblem } = match;
   const [gameTime, setGameTime] = useState(0);
-
-  console.log(getTeam1, "   ", getTeam2);
+  const [scores, setScore] = useState([0, 0]);
 
   useEffect(() => {
     const gameInt = setInterval(() => {
@@ -28,6 +27,11 @@ const Game = ({ match }) => {
       <div className="home">
         <img src={getTeam1Emblem} alt={getTeam1} />
         <span className="team-name">{getTeam1}</span>
+      </div>
+      <div className="score-holder">
+        <span className="score">{scores[0]}</span>
+        <span className="versus">VS</span>
+        <span className="score">{scores[1]}</span>
       </div>
       <div className="home">
         <img src={getTeam2Emblem} alt={getTeam2} />
