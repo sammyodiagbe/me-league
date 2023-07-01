@@ -34,6 +34,7 @@ const GameDataProvider = ({ children }) => {
   };
 
   const generateSeasonFixture = () => {
+    // create a dummy array
     const dummyFixtures = [];
     for (let index = 0; index < teamsData.length; index++) {
       const tempTeams = [...teamsData];
@@ -49,6 +50,7 @@ const GameDataProvider = ({ children }) => {
         dummyFixtures.push(newMatch);
       }
     }
+    console.table(dummyFixtures.slice(0, 20));
     generateWeeklyFixtures(dummyFixtures);
   };
 
@@ -56,30 +58,36 @@ const GameDataProvider = ({ children }) => {
 
   const generateWeeklyFixtures = (seasonGames) => {
     const games = seasonGames;
-    const weeklyFixtures = [...fixtures];
+    const weeklyFixtures = Array.from({ length: 38 }, (e) => new Week());
+
+    console.log(weeklyFixtures);
     while (games.length) {
       // get the game from the season games
-      const game = games.splice(Math.floor(Math.random() * games.length), 1)[0];
-      for (let index = 0; index < 10; index++) {
-        const week = weeklyFixtures[index];
+      const match = games.splice(
+        Math.floor(Math.random() * games.length),
+        1
+      )[0];
+      for (let index = 0; index < 38; index++) {
         // console.log("getting team 1 name");
 
         // if the team is already playing in that week
         if (
-          week.getTeams.includes(game.getTeam1) ||
-          week.getTeams.includes(game.getTeam2)
+          weeklyFixtures[index].getTeams.includes(match.getTeam1) ||
+          weeklyFixtures[index].getTeams.includes(match.getTeam2)
         ) {
           // do nothing and go to the next week
+          console.log("match found");
           continue;
         } else {
           // the teams have not been added
           // add the team to the week
-          week.addGameToWeek(game);
-          weeklyFixtures[index] = week;
+          weeklyFixtures[index].addGameToWeek(match);
+          // weeklyFixtures[index] = week;
           break;
         }
       }
     }
+
     setWeeklyFixtures(weeklyFixtures);
     setStarted(true);
   };
