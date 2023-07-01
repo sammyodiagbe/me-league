@@ -60,8 +60,7 @@ const GameDataProvider = ({ children }) => {
     const games = seasonGames;
     const weeklyFixtures = Array.from({ length: 38 }, (e) => new Week());
 
-    console.log(weeklyFixtures);
-    while (games.length) {
+    for (let ind = games.length - 1; ind >= 0; ind--) {
       // get the game from the season games
       const match = games.splice(
         Math.floor(Math.random() * games.length),
