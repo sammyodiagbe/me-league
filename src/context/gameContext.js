@@ -74,8 +74,6 @@ const GameDataProvider = ({ children }) => {
           weeklyFixtures[index].getTeams.includes(match.getTeam1) ||
           weeklyFixtures[index].getTeams.includes(match.getTeam2)
         ) {
-          // do nothing and go to the next week
-          console.log("match found");
           continue;
         } else {
           // the teams have not been added
