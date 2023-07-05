@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const Game = ({ match }) => {
-  const { getTeam1, getTeam2, getTeam1Emblem, getTeam2Emblem } = match;
+  const { team1, team2 } = match;
   const [gameTime, setGameTime] = useState(0);
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
@@ -36,18 +36,18 @@ const Game = ({ match }) => {
   return (
     <div className="a-game">
       <div className="home">
-        <p>{getTeam1}</p>
+        <p>{team1.name}</p>
       </div>
       <div className="score-holder">
-        <img src={getTeam1Emblem} alt={getTeam1} />
+        <img src={team1.emblem} alt={team1.name} />
         <div className="score-line">
           <span className="score">{homeScore}</span>
           <span className="versus">VS</span>
           <span className="score">{awayScore}</span>
         </div>
-        <img src={getTeam2Emblem} alt={getTeam2} />
+        <img src={team2.emblem} alt={team2.emblem} />
       </div>
-      <div className="away">{getTeam2}</div>
+      <div className="away">{team2.name}</div>
     </div>
   );
 };

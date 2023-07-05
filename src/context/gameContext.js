@@ -57,34 +57,31 @@ const GameDataProvider = ({ children }) => {
   //   generate weekly fixtures
 
   const generateWeeklyFixtures = (seasonGames) => {
-    const games = seasonGames;
-    const weeklyFixtures = Array.from({ length: 38 }, (e) => new Week());
+    const games = [...seasonGames];
+    const weeklyFixtures = Array.from({ length: 38 }, () => new Week());
 
-    for (let ind = games.length - 1; ind >= 0; ind--) {
-      // get the game from the season games
-      const match = games.splice(
-        Math.floor(Math.random() * games.length),
-        1
-      )[0];
+    // generating league data
+
+    while (games.length) {
+      let match = games.splice(Math.random() * games.length, 1)[0];
+
       for (let index = 0; index < 38; index++) {
-        // console.log("getting team 1 name");
-
-        // if the team is already playing in that week
+        let week = weeklyFixtures[index];
         if (
-          weeklyFixtures[index].getTeams.includes(match.getTeam1) ||
-          weeklyFixtures[index].getTeams.includes(match.getTeam2)
+          !week.teams.has(match.team1.name) &&
+          !week.teams.has(match.team2.name)
         ) {
-          continue;
-        } else {
-          // the teams have not been added
-          // add the team to the week
-          weeklyFixtures[index].addGameToWeek(match);
-          // weeklyFixtures[index] = week;
+          week.addGameToWeek(match);
+          week.addToTeams(match.team1.name);
+          week.addToTeams(match.team2.name);
           break;
+        } else {
+          continue;
         }
       }
     }
 
+    console.log(weeklyFixtures);
     setWeeklyFixtures(weeklyFixtures);
     setStarted(true);
   };

@@ -15,22 +15,6 @@ class Team {
     this.emblem = emblem;
     this.shortName = shortName;
   }
-
-  get getName() {
-    return this.name;
-  }
-
-  get getshortName() {
-    return this.shortName;
-  }
-
-  get getEmblem() {
-    return this.emblem;
-  }
-
-  get getShortName() {
-    return this.shortName;
-  }
 }
 
 export default Team;

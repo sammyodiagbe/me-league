@@ -26,7 +26,7 @@ const WeekFixtures = () => {
     <div className="fixtures">
       <h2>Week {week + 1}</h2>
       <div>
-        {fixtures[week].getGames.map((match, index) => {
+        {fixtures[week].games.map((match, index) => {
           return <Game match={match} key={index} />;
         })}
       </div>

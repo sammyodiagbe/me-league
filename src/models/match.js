@@ -6,29 +6,6 @@ class Match {
     this.team1 = team1;
     this.team2 = team2;
   }
-
-  get getTeam1() {
-    return this.team1.name;
-  }
-
-  get getTeam2() {
-    return this.team2.name;
-  }
-
-  get getTeam1Emblem() {
-    return this.team1.getEmblem;
-  }
-
-  get getTeam2Emblem() {
-    return this.team2.getEmblem;
-  }
-  get getFirstTeam() {
-    return this.team1;
-  }
-
-  get getSecondTeam() {
-    return this.team2;
-  }
 }
 
 export default Match;
